@@ -9,7 +9,7 @@ HTTP 200
 
 [Asserts]
 header "Content-Type" contains "text/html"
-xpath "string(/html/head/title)" contains "WebHook Tester" # Check title
+xpath "string(/html/head/title)" contains "TriggerLab" # Check title
 xpath "//*[@id='app']" count == 1 # App mounting point exist
 
 # --- Head request request should not return a body

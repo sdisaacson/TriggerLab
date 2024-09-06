@@ -37,7 +37,7 @@ services:
     <<: *go
     ports: ['8080:8080/tcp'] # Open <http://127.0.0.1:8080>
     command: >-
-      go run -tags watch ./cmd/TriggerLab/ serve
+      go run -tags watch ./cmd/triggerlab/ serve
         --port=8080 --storage-driver=redis --pubsub-driver=redis
         --redis-dsn=redis://redis:6379/0 --max-requests=12 --ignore-header-prefix=x-test-foo --ws-max-clients=20
         --ws-max-lifetime=1m

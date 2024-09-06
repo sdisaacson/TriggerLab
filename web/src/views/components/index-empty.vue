@@ -1,7 +1,7 @@
 <template>
   <div>
     <h4 class="mt-2">
-      WebHook Tester allows you to easily test webhooks and other types of HTTP requests
+      TriggerLab allows you to easily test webhooks and other types of HTTP requests
     </h4>
     <p class="text-muted">
       Any requests sent to that URL are logged here instantly — you don't even have to refresh!

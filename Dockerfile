@@ -59,7 +59,7 @@ ENV LDFLAGS="-s -w -X github.com/sdisaacson/TriggerLab/internal/version.test=$AP
 
 RUN set -x \
     && go generate ./... \
-    && CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o /tmp/triggerlab ./cmd/triggerLab/ \
+    && CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o /tmp/triggerlab ./cmd/triggerlab/ \
     && /tmp/triggerlab --version \
     && /tmp/triggerlab -h
 

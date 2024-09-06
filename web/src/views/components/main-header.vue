@@ -1,7 +1,7 @@
 <template>
   <header class="navbar navbar-expand flex-column flex-md-row flex-sm-row p-3 navbar-dark bg-primary">
     <span class="navbar-brand me-0 pt-0 me-md-2">
-      WebHook Tester
+      TriggerLab
     </span>
 
     <div class="me-auto">
@@ -70,7 +70,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">
-              What is WebHook Tester?
+              What is TriggerLab?
             </h5>
             <button
               type="button"
@@ -81,7 +81,7 @@
           </div>
           <div class="modal-body">
             <p>
-              <strong>Webhook Tester</strong> allows you to easily test webhooks and other types of HTTP
+              <strong>TriggerLab</strong> allows you to easily test webhooks and other types of HTTP
               requests. Here's your unique URL:
             </p>
             <p>

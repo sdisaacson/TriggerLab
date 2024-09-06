@@ -92,7 +92,7 @@ jobs:
           GOARCH: ${{ matrix.arch }}
           CGO_ENABLED: 0
           LDFLAGS: -s -w -X github.com/sdisaacson/TriggerLab/internal/version.version=${{ steps.slug.outputs.commit-hash-short }}
-        run: go build -trimpath -ldflags "$LDFLAGS" -o /tmp/TriggerLab ./cmd/TriggerLab/
+        run: go build -trimpath -ldflags "$LDFLAGS" -o /tmp/TriggerLab ./cmd/triggerLab/
       - name: Try to execute
         if: matrix.os == 'linux'
         run: /tmp/TriggerLab --version && /tmp/TriggerLab -h
