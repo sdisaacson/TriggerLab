@@ -27,7 +27,7 @@ FROM golang:1.23-alpine as builder
 
 # can be passed with any prefix (like `v1.2.3@GITHASH`)
 # e.g.: `docker build --build-arg "APP_VERSION=v1.2.3@GITHASH" .`
-ARG APP_VERSION="undefined@docker"
+ARG APP_VERSION="v1.2.3@docker"
 
 # renovate: source=github-releases name=deepmap/oapi-codegen
 ENV OAPI_CODEGEN_VERSION="2.2.0"
@@ -38,7 +38,7 @@ RUN set -x \
 
 # This argument allows to install additional software for local development using docker and avoid it \
 # in the production build
-ARG DEV_MODE="false"
+ARG DEV_MODE="true"
 
 RUN set -x \
     && if [ "${DEV_MODE}" = "true" ]; then \
@@ -55,13 +55,13 @@ WORKDIR /src
 COPY --from=frontend /src/web/dist /src/web/dist
 
 # arguments to pass on each go tool link invocation
-ENV LDFLAGS="-s -w -X github.com/sdisaacson/TriggerLab/internal/version.version=$APP_VERSION"
+ENV LDFLAGS="-s -w -X github.com/sdisaacson/TriggerLab/internal/version.test=$APP_VERSION"
 
 RUN set -x \
     && go generate ./... \
-    && CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o /tmp/TriggerLab ./cmd/TriggerLab/ \
-    && /tmp/TriggerLab --version \
-    && /tmp/TriggerLab -h
+    && CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o /tmp/triggerlab ./cmd/triggerLab/ \
+    && /tmp/triggerlab --version \
+    && /tmp/triggerlab -h
 
 # prepare rootfs for runtime
 RUN mkdir -p /tmp/rootfs
@@ -74,7 +74,7 @@ RUN set -x \
         ./bin \
     && echo 'appuser:x:10001:10001::/nonexistent:/sbin/nologin' > ./etc/passwd \
     && echo 'appuser:x:10001:' > ./etc/group \
-    && mv /tmp/TriggerLab ./bin/TriggerLab
+    && mv /tmp/triggerlab ./bin/TriggerLab
 
 # use empty filesystem
 FROM scratch as runtime
