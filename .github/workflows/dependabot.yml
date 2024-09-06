@@ -18,10 +18,10 @@ jobs:
     steps:
       - uses: dependabot/fetch-metadata@v2
         id: metadata
-        with: {github-token: "${{ secrets.GITHUB_TOKEN }}"}
+        with: {github-token: "${{ secrets.TRIGGERLAB_DEPENDABOT }}"}
 
       - if: ${{ contains(fromJSON('["version-update:semver-minor", "version-update:semver-patch"]'), steps.metadata.outputs.update-type) }}
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TRIGGERLAB_DEPENDABOT }}
