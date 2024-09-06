@@ -8,7 +8,7 @@ import (
 	"github.com/go-redis/redis/v8"
 	"github.com/stretchr/testify/assert"
 
-	"gh.tarampamp.am/webhook-tester/internal/checkers"
+	"github.com/sdisaacson/TriggerLab/internal/checkers"
 )
 
 func TestReadyChecker_CheckSuccessWithRedisClient(t *testing.T) {

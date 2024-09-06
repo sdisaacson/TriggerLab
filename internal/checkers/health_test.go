@@ -9,7 +9,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"gh.tarampamp.am/webhook-tester/internal/checkers"
+	"github.com/sdisaacson/TriggerLab/internal/checkers"
 )
 
 type httpClientFunc func(*http.Request) (*http.Response, error)

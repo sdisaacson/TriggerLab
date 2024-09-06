@@ -7,11 +7,11 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	"gh.tarampamp.am/webhook-tester/internal/checkers"
-	"gh.tarampamp.am/webhook-tester/internal/cli/healthcheck"
-	"gh.tarampamp.am/webhook-tester/internal/cli/serve"
-	"gh.tarampamp.am/webhook-tester/internal/logger"
-	"gh.tarampamp.am/webhook-tester/internal/version"
+	"github.com/sdisaacson/TriggerLab/internal/checkers"
+	"github.com/sdisaacson/TriggerLab/internal/cli/healthcheck"
+	"github.com/sdisaacson/TriggerLab/internal/cli/serve"
+	"github.com/sdisaacson/TriggerLab/internal/logger"
+	"github.com/sdisaacson/TriggerLab/internal/version"
 )
 
 // NewApp creates new console application.

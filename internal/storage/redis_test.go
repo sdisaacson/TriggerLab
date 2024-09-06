@@ -9,7 +9,7 @@ import (
 	"github.com/go-redis/redis/v8"
 	"github.com/stretchr/testify/assert"
 
-	"gh.tarampamp.am/webhook-tester/internal/storage"
+	"github.com/sdisaacson/TriggerLab/internal/storage"
 )
 
 func TestRedis_SessionCreateReadDelete(t *testing.T) {

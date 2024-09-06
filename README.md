@@ -65,21 +65,21 @@ For multiple app instances redis driver must be used.
 Download the latest binary file for your arch (to run on macOS use the `linux/arm64` platform) from the [releases page][link_releases]. For example, let's install it on **amd64** arch (e.g.: Debian, Ubuntu, etc):
 
 ```shell
-$ curl -SsL -o ./webhook-tester https://github.com/tarampampam/webhook-tester/releases/latest/download/webhook-tester-linux-amd64
-$ chmod +x ./webhook-tester
+$ curl -SsL -o ./TriggerLab https://github.com/tarampampam/TriggerLab/releases/latest/download/TriggerLab-linux-amd64
+$ chmod +x ./TriggerLab
 
 # optionally, install the binary file globally:
-$ sudo install -g root -o root -t /usr/local/bin -v ./webhook-tester
-$ rm ./webhook-tester
-$ webhook-tester --help
+$ sudo install -g root -o root -t /usr/local/bin -v ./TriggerLab
+$ rm ./TriggerLab
+$ TriggerLab --help
 ```
 
 Additionally, you can use the docker image:
 
 | Registry                               | Image                                |
 |----------------------------------------|--------------------------------------|
-| [GitHub Container Registry][link_ghcr] | `ghcr.io/tarampampam/webhook-tester` |
-| [Docker Hub][link_docker_hub]          | `tarampampam/webhook-tester`         |
+| [GitHub Container Registry][link_ghcr] | `ghcr.io/tarampampam/TriggerLab` |
+| [Docker Hub][link_docker_hub]          | `tarampampam/TriggerLab`         |
 
 > Using the `latest` tag for the docker image is highly discouraged because of possible backward-incompatible changes during **major** upgrades. Please, use tags in `X.Y.Z` format
 
@@ -125,7 +125,7 @@ And global flags:
 Server starting command example:
 
 ```shell
-$ ./webhook-tester --log-json serve \
+$ ./TriggerLab --log-json serve \
     --port 8080 \
     --storage-driver redis \
     --pubsub-driver redis \
@@ -138,14 +138,14 @@ $ ./webhook-tester --log-json serve \
     --ws-max-lifetime 6h
 ```
 
-After that you can navigate your browser to `http://127.0.0.1:8080/` try to send your first HTTP request for the webhook-tester!
+After that you can navigate your browser to `http://127.0.0.1:8080/` try to send your first HTTP request for the TriggerLab!
 
 ### 🐋 Using docker
 
 Just execute in your terminal:
 
 ```shell
-$ docker run --rm -p 8080:8080/tcp tarampampam/webhook-tester serve
+$ docker run --rm -p 8080:8080/tcp tarampampam/TriggerLab serve
 ```
 
 #### Docker-compose
@@ -159,8 +159,8 @@ volumes:
   redis-data: {}
 
 services:
-  webhook-tester:
-    image: tarampampam/webhook-tester
+  TriggerLab:
+    image: tarampampam/TriggerLab
     command: --log-json serve --port 8080 --storage-driver redis --pubsub-driver redis --redis-dsn redis://redis:6379/0
     ports: ['8080:8080/tcp'] # Open <http://127.0.0.1:8080>
     depends_on:
@@ -181,8 +181,8 @@ Or you can use in-memory data storage only:
 version: '3.8'
 
 services:
-  webhook-tester:
-    image: tarampampam/webhook-tester
+  TriggerLab:
+    image: tarampampam/TriggerLab
     command: serve --port 8080 --create-session 00000000-0000-0000-0000-000000000000
     ports: ['8080:8080/tcp'] # Open <http://127.0.0.1:8080/#/00000000-0000-0000-0000-000000000000>
 ```
@@ -198,21 +198,21 @@ If you find any package errors, please, [make an issue][link_create_issue] in cu
 
 This is open-sourced software licensed under the [MIT License][link_license].
 
-[badge_build]:https://img.shields.io/github/actions/workflow/status/tarampampam/webhook-tester/tests.yml?branch=master&maxAge=30&label=tests&logo=github
-[badge_release]:https://img.shields.io/github/actions/workflow/status/tarampampam/webhook-tester/release.yml?maxAge=30&label=release&logo=github
-[badge_release_version]:https://img.shields.io/github/release/tarampampam/webhook-tester.svg?maxAge=30
-[badge_size_latest]:https://img.shields.io/docker/image-size/tarampampam/webhook-tester/latest?maxAge=30
-[badge_language]:https://img.shields.io/github/go-mod/go-version/tarampampam/webhook-tester?longCache=true
-[badge_license]:https://img.shields.io/github/license/tarampampam/webhook-tester.svg?longCache=true
-[badge_issues]:https://img.shields.io/github/issues/tarampampam/webhook-tester.svg?maxAge=45
-[badge_pulls]:https://img.shields.io/github/issues-pr/tarampampam/webhook-tester.svg?maxAge=45
+[badge_build]:https://img.shields.io/github/actions/workflow/status/tarampampam/TriggerLab/tests.yml?branch=master&maxAge=30&label=tests&logo=github
+[badge_release]:https://img.shields.io/github/actions/workflow/status/tarampampam/TriggerLab/release.yml?maxAge=30&label=release&logo=github
+[badge_release_version]:https://img.shields.io/github/release/tarampampam/TriggerLab.svg?maxAge=30
+[badge_size_latest]:https://img.shields.io/docker/image-size/tarampampam/TriggerLab/latest?maxAge=30
+[badge_language]:https://img.shields.io/github/go-mod/go-version/tarampampam/TriggerLab?longCache=true
+[badge_license]:https://img.shields.io/github/license/tarampampam/TriggerLab.svg?longCache=true
+[badge_issues]:https://img.shields.io/github/issues/tarampampam/TriggerLab.svg?maxAge=45
+[badge_pulls]:https://img.shields.io/github/issues-pr/tarampampam/TriggerLab.svg?maxAge=45
 
-[link_build]:https://github.com/tarampampam/webhook-tester/actions
-[link_docker_hub]:https://hub.docker.com/r/tarampampam/webhook-tester/
-[link_docker_tags]:https://hub.docker.com/r/tarampampam/webhook-tester/tags
-[link_license]:https://github.com/tarampampam/webhook-tester/blob/master/LICENSE
-[link_releases]:https://github.com/tarampampam/webhook-tester/releases
-[link_issues]:https://github.com/tarampampam/webhook-tester/issues
-[link_create_issue]:https://github.com/tarampampam/webhook-tester/issues/new/choose
-[link_pulls]:https://github.com/tarampampam/webhook-tester/pulls
-[link_ghcr]:https://github.com/users/tarampampam/packages/container/package/webhook-tester
+[link_build]:https://github.com/tarampampam/TriggerLab/actions
+[link_docker_hub]:https://hub.docker.com/r/tarampampam/TriggerLab/
+[link_docker_tags]:https://hub.docker.com/r/tarampampam/TriggerLab/tags
+[link_license]:https://github.com/tarampampam/TriggerLab/blob/master/LICENSE
+[link_releases]:https://github.com/tarampampam/TriggerLab/releases
+[link_issues]:https://github.com/tarampampam/TriggerLab/issues
+[link_create_issue]:https://github.com/tarampampam/TriggerLab/issues/new/choose
+[link_pulls]:https://github.com/tarampampam/TriggerLab/pulls
+[link_ghcr]:https://github.com/users/tarampampam/packages/container/package/TriggerLab

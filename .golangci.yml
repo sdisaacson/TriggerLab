@@ -14,7 +14,7 @@ linters-settings:
     sections:
       - standard
       - default
-      - prefix(gh.tarampamp.am/webhook-tester)
+      - prefix(github.com/sdisaacson/TriggerLab)
   gofmt:
     simplify: false
     rewrite-rules:

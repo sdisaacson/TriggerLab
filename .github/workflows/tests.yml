@@ -92,14 +92,14 @@ jobs:
           GOARCH: ${{ matrix.arch }}
           CGO_ENABLED: 0
           LDFLAGS: -s -w -X github.com/sdisaacson/TriggerLab/internal/version.version=${{ steps.slug.outputs.commit-hash-short }}
-        run: go build -trimpath -ldflags "$LDFLAGS" -o /tmp/TriggerLab ./cmd/webhook-tester/
+        run: go build -trimpath -ldflags "$LDFLAGS" -o /tmp/TriggerLab ./cmd/TriggerLab/
       - name: Try to execute
         if: matrix.os == 'linux'
         run: /tmp/TriggerLab --version && /tmp/TriggerLab -h
       - uses: actions/upload-artifact@v4
         with:
-          name: webhook-tester-${{ matrix.os }}-${{ matrix.arch }}
-          path: /tmp/webhook-tester
+          name: TriggerLab-${{ matrix.os }}-${{ matrix.arch }}
+          path: /tmp/TriggerLab
           if-no-files-found: error
           retention-days: 3
 
@@ -158,10 +158,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
-        with: {name: webhook-tester-linux-amd64}
+        with: {name: TriggerLab-linux-amd64}
       - run: |
-          chmod +x ./webhook-tester
-          ./webhook-tester serve --port 8081 \
+          chmod +x ./TriggerLab
+          ./TriggerLab serve --port 8081 \
             --storage-driver "${{ matrix.storage-driver }}" \
             --pubsub-driver "${{ matrix.pubsub-driver }}" \
             --redis-dsn "redis://127.0.0.1:6379/0" &

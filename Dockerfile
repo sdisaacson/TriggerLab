@@ -55,13 +55,13 @@ WORKDIR /src
 COPY --from=frontend /src/web/dist /src/web/dist
 
 # arguments to pass on each go tool link invocation
-ENV LDFLAGS="-s -w -X gh.tarampamp.am/webhook-tester/internal/version.version=$APP_VERSION"
+ENV LDFLAGS="-s -w -X github.com/sdisaacson/TriggerLab/internal/version.version=$APP_VERSION"
 
 RUN set -x \
     && go generate ./... \
-    && CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o /tmp/webhook-tester ./cmd/webhook-tester/ \
-    && /tmp/webhook-tester --version \
-    && /tmp/webhook-tester -h
+    && CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o /tmp/TriggerLab ./cmd/TriggerLab/ \
+    && /tmp/TriggerLab --version \
+    && /tmp/TriggerLab -h
 
 # prepare rootfs for runtime
 RUN mkdir -p /tmp/rootfs
@@ -74,7 +74,7 @@ RUN set -x \
         ./bin \
     && echo 'appuser:x:10001:10001::/nonexistent:/sbin/nologin' > ./etc/passwd \
     && echo 'appuser:x:10001:' > ./etc/group \
-    && mv /tmp/webhook-tester ./bin/webhook-tester
+    && mv /tmp/TriggerLab ./bin/TriggerLab
 
 # use empty filesystem
 FROM scratch as runtime
@@ -83,10 +83,10 @@ ARG APP_VERSION="undefined@docker"
 
 LABEL \
     # Docs: <https://github.com/opencontainers/image-spec/blob/master/annotations.md>
-    org.opencontainers.image.title="webhook-tester" \
+    org.opencontainers.image.title="TriggerLab" \
     org.opencontainers.image.description="Test your HTTP webhooks using friendly web UI" \
-    org.opencontainers.image.url="https://github.com/tarampampam/webhook-tester" \
-    org.opencontainers.image.source="https://github.com/tarampampam/webhook-tester" \
+    org.opencontainers.image.url="https://github.com/tarampampam/TriggerLab" \
+    org.opencontainers.image.source="https://github.com/tarampampam/TriggerLab" \
     org.opencontainers.image.vendor="tarampampam" \
     org.opencontainers.version="$APP_VERSION" \
     org.opencontainers.image.licenses="MIT"
@@ -101,9 +101,9 @@ ENV LISTEN_PORT=8080
 
 # Docs: <https://docs.docker.com/engine/reference/builder/#healthcheck>
 HEALTHCHECK --interval=15s --timeout=3s --start-period=1s CMD [ \
-    "/bin/webhook-tester", "--log-json", "healthcheck" \
+    "/bin/TriggerLab", "--log-json", "healthcheck" \
 ]
 
-ENTRYPOINT ["/bin/webhook-tester"]
+ENTRYPOINT ["/bin/TriggerLab"]
 
 CMD ["--log-json", "serve"]

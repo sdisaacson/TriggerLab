@@ -10,8 +10,8 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/stretchr/testify/assert"
 
-	"gh.tarampamp.am/webhook-tester/internal/config"
-	"gh.tarampamp.am/webhook-tester/internal/http/handlers"
+	"github.com/sdisaacson/TriggerLab/internal/config"
+	"github.com/sdisaacson/TriggerLab/internal/http/handlers"
 )
 
 func TestApiMetrics_AppMetrics(t *testing.T) {

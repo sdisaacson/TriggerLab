@@ -11,9 +11,9 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/pkg/errors"
 
-	"gh.tarampamp.am/webhook-tester/internal/api"
-	"gh.tarampamp.am/webhook-tester/internal/pubsub"
-	"gh.tarampamp.am/webhook-tester/internal/storage"
+	"github.com/sdisaacson/TriggerLab/internal/api"
+	"github.com/sdisaacson/TriggerLab/internal/pubsub"
+	"github.com/sdisaacson/TriggerLab/internal/storage"
 )
 
 type apiSession struct {

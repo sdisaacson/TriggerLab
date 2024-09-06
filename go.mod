@@ -1,4 +1,4 @@
-module gh.tarampamp.am/webhook-tester
+module github.com/sdisaacson/TriggerLab
 
 go 1.23
 

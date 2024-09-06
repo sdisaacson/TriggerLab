@@ -9,7 +9,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"gh.tarampamp.am/webhook-tester/internal/pubsub"
+	"github.com/sdisaacson/TriggerLab/internal/pubsub"
 )
 
 func TestInMemory_PublishErrors(t *testing.T) {

@@ -3,7 +3,7 @@ package shared
 import (
 	"github.com/urfave/cli/v2"
 
-	"gh.tarampamp.am/webhook-tester/internal/env"
+	"github.com/sdisaacson/TriggerLab/internal/env"
 )
 
 var PortNumberFlag = &cli.UintFlag{

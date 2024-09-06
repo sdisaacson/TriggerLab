@@ -9,7 +9,7 @@ import (
 	"github.com/kami-zh/go-capturer"
 	"github.com/stretchr/testify/assert"
 
-	"gh.tarampamp.am/webhook-tester/internal/logger"
+	"github.com/sdisaacson/TriggerLab/internal/logger"
 )
 
 func TestNewNotVerboseDebugJSON(t *testing.T) {

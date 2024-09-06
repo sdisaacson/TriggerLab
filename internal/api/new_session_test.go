@@ -8,7 +8,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"gh.tarampamp.am/webhook-tester/internal/api"
+	"github.com/sdisaacson/TriggerLab/internal/api"
 )
 
 func TestNewSession_Validate(t *testing.T) {

@@ -7,7 +7,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus/testutil"
 	"github.com/stretchr/testify/assert"
 
-	"gh.tarampamp.am/webhook-tester/internal/metrics"
+	"github.com/sdisaacson/TriggerLab/internal/metrics"
 )
 
 func TestWebHooks_Register(t *testing.T) {

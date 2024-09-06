@@ -5,7 +5,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"gh.tarampamp.am/webhook-tester/internal/api"
+	"github.com/sdisaacson/TriggerLab/internal/api"
 )
 
 type apiVersion struct {

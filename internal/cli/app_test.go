@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"gh.tarampamp.am/webhook-tester/internal/cli"
+	"github.com/sdisaacson/TriggerLab/internal/cli"
 )
 
 func TestNewApp(t *testing.T) {

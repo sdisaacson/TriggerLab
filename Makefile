@@ -2,7 +2,7 @@
 # Makefile readme (en): <https://www.gnu.org/software/make/manual/html_node/index.html#SEC_Contents>
 
 SHELL = /bin/sh
-LDFLAGS = "-s -w -X github.com/tarampampam/webhook-tester/internal/version.version=$(shell git rev-parse HEAD)"
+LDFLAGS = "-s -w -X github.com/tarampampam/TriggerLab/internal/version.version=$(shell git rev-parse HEAD)"
 
 DC_RUN_ARGS = --rm --user "$(shell id -u):$(shell id -g)"
 APP_NAME = $(notdir $(CURDIR))
@@ -46,7 +46,7 @@ go-generate: ## Generate backend assets
 	docker compose run $(DC_RUN_ARGS) --no-deps go go generate ./...
 
 go-build: node-build go-generate ## Build app binary file
-	docker compose run $(DC_RUN_ARGS) -e "CGO_ENABLED=0" --no-deps go go build -trimpath -ldflags $(LDFLAGS) ./cmd/webhook-tester/
+	docker compose run $(DC_RUN_ARGS) -e "CGO_ENABLED=0" --no-deps go go build -trimpath -ldflags $(LDFLAGS) ./cmd/TriggerLab/
 
 go-test: fake-web-dist go-generate ## Run backend tests
 	docker compose run $(DC_RUN_ARGS) --no-deps go go test -v -race -timeout 10s ./...
@@ -80,4 +80,4 @@ restart: down up ## Restart all containers
 clean: ## Make clean
 	docker compose down -v -t 1
 	-docker rmi $(APP_NAME):local -f
-	-rm -R ./webhook-tester ./web/node_modules ./web/dist
+	-rm -R ./TriggerLab ./web/node_modules ./web/dist

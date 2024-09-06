@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"gh.tarampamp.am/webhook-tester/internal/checkers"
+	"github.com/sdisaacson/TriggerLab/internal/checkers"
 )
 
 func TestLiveChecker_Check(t *testing.T) {

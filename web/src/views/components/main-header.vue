@@ -20,7 +20,7 @@
         >
           <a
             class="nav-link"
-            href="https://github.com/tarampampam/webhook-tester"
+            href="https://github.com/tarampampam/TriggerLab"
             target="_blank"
           >
             <font-awesome-icon icon="fa-brands fa-github" />

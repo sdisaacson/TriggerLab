@@ -6,11 +6,11 @@ import (
 	"github.com/go-redis/redis/v8"
 	"github.com/prometheus/client_golang/prometheus"
 
-	"gh.tarampamp.am/webhook-tester/internal/api"
-	"gh.tarampamp.am/webhook-tester/internal/checkers"
-	"gh.tarampamp.am/webhook-tester/internal/config"
-	"gh.tarampamp.am/webhook-tester/internal/pubsub"
-	"gh.tarampamp.am/webhook-tester/internal/storage"
+	"github.com/sdisaacson/TriggerLab/internal/api"
+	"github.com/sdisaacson/TriggerLab/internal/checkers"
+	"github.com/sdisaacson/TriggerLab/internal/config"
+	"github.com/sdisaacson/TriggerLab/internal/pubsub"
+	"github.com/sdisaacson/TriggerLab/internal/storage"
 )
 
 type API struct {

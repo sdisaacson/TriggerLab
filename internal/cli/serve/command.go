@@ -16,14 +16,14 @@ import (
 	"github.com/urfave/cli/v2"
 	"go.uber.org/zap"
 
-	"gh.tarampamp.am/webhook-tester/internal/breaker"
-	"gh.tarampamp.am/webhook-tester/internal/cli/shared"
-	"gh.tarampamp.am/webhook-tester/internal/config"
-	"gh.tarampamp.am/webhook-tester/internal/env"
-	appHttp "gh.tarampamp.am/webhook-tester/internal/http"
-	"gh.tarampamp.am/webhook-tester/internal/logger"
-	"gh.tarampamp.am/webhook-tester/internal/pubsub"
-	"gh.tarampamp.am/webhook-tester/internal/storage"
+	"github.com/sdisaacson/TriggerLab/internal/breaker"
+	"github.com/sdisaacson/TriggerLab/internal/cli/shared"
+	"github.com/sdisaacson/TriggerLab/internal/config"
+	"github.com/sdisaacson/TriggerLab/internal/env"
+	appHttp "github.com/sdisaacson/TriggerLab/internal/http"
+	"github.com/sdisaacson/TriggerLab/internal/logger"
+	"github.com/sdisaacson/TriggerLab/internal/pubsub"
+	"github.com/sdisaacson/TriggerLab/internal/storage"
 )
 
 // NewCommand creates `serve` command.

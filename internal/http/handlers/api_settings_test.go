@@ -10,8 +10,8 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
 
-	"gh.tarampamp.am/webhook-tester/internal/config"
-	"gh.tarampamp.am/webhook-tester/internal/http/handlers"
+	"github.com/sdisaacson/TriggerLab/internal/config"
+	"github.com/sdisaacson/TriggerLab/internal/http/handlers"
 )
 
 func TestApiSettings_ApiSettings(t *testing.T) {

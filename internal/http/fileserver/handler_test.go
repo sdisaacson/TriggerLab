@@ -9,7 +9,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
 
-	"gh.tarampamp.am/webhook-tester/internal/http/fileserver"
+	"github.com/sdisaacson/TriggerLab/internal/http/fileserver"
 )
 
 func TestHandler(t *testing.T) {

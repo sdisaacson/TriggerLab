@@ -298,7 +298,7 @@ func (s *Redis) DeleteRequest(sessionUUID, requestUUID string) (bool, error) {
 
 type redisKey string
 
-func (s redisKey) session() string          { return "webhook-tester:session:" + string(s) } // session data.
+func (s redisKey) session() string          { return "TriggerLab:session:" + string(s) } // session data.
 func (s redisKey) requests() string         { return s.session() + ":requests" }             // requests list.
 func (s redisKey) request(id string) string { return s.session() + ":requests:" + id }       // request data.
 

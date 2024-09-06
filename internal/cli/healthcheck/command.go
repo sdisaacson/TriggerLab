@@ -7,7 +7,7 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	"gh.tarampamp.am/webhook-tester/internal/cli/shared"
+	"github.com/sdisaacson/TriggerLab/internal/cli/shared"
 )
 
 type checker interface {
