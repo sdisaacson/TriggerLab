@@ -20,7 +20,7 @@
         >
           <a
             class="nav-link"
-            href="https://github.com/tarampampam/TriggerLab"
+            href="https://github.com/sdisaacson/TriggerLab"
             target="_blank"
           >
             <font-awesome-icon icon="fa-brands fa-github" />
@@ -82,7 +82,7 @@
           <div class="modal-body">
             <p>
               <strong>TriggerLab</strong> allows you to easily test webhooks and other types of HTTP
-              requests. Here's your unique URL:
+              requests. Here's your URL:
             </p>
             <p>
               <code id="help-modal-current-url">{{ currentWebHookUrl }}</code>
@@ -109,7 +109,7 @@
                 Try it!
               </a>
             </p>
-            <p>Any requests sent to that URL are instantly logged here - you don't even have to refresh.</p>
+            <p>Any requests sent to that URL are instantly logged here</p>
             <hr>
             <p>Append a status code to the url, e.g.:</p>
             <p>
