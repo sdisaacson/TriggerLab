@@ -27,13 +27,13 @@ jobs:
           go generate ./...
       - {uses: gacts/github-slug@v1, id: slug}
       - id: values
-        run: echo "binary-name=webhook-tester-${{ matrix.os }}-${{ matrix.arch }}`[ ${{ matrix.os }} = 'windows' ] && echo '.exe'`" >> $GITHUB_OUTPUT
+        run: echo "binary-name=TriggerLab-${{ matrix.os }}-${{ matrix.arch }}`[ ${{ matrix.os }} = 'windows' ] && echo '.exe'`" >> $GITHUB_OUTPUT
       - env:
           GOOS: ${{ matrix.os }}
           GOARCH: ${{ matrix.arch }}
           CGO_ENABLED: 0
-          LDFLAGS: -s -w -X gh.tarampamp.am/webhook-tester/internal/version.version=${{ steps.slug.outputs.version }}
-        run: go build -trimpath -ldflags "$LDFLAGS" -o "./${{ steps.values.outputs.binary-name }}" ./cmd/webhook-tester/
+          LDFLAGS: -s -w -X github.com/sdisaacson/TriggerLab/internal/version.version=${{ steps.slug.outputs.version }}
+        run: go build -trimpath -ldflags "$LDFLAGS" -o "./${{ steps.values.outputs.binary-name }}" ./cmd/TriggerLab/
       - uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -65,7 +65,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           build-args: "APP_VERSION=${{ steps.slug.outputs.version }}"
           tags: |
-            tarampampam/webhook-tester:${{ steps.slug.outputs.version }}
-            tarampampam/webhook-tester:latest
+            scott292/TriggerLab:${{ steps.slug.outputs.version }}
+            scott292/TriggerLab:latest
             ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:${{ steps.slug.outputs.version }}
             ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
