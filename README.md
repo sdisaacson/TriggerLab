@@ -1,23 +1,14 @@
-<p align="center">
-  <img src="https://hsto.org/webt/mn/fz/q-/mnfzq-lgdnbmv-3xv-1qm6gn82e.png" alt="Logo" width=128" />
-</p>
+
 
 # TriggerLab
 
-[![Release version][badge_release_version]][link_releases]
-![Project language][badge_language]
-[![Build Status][badge_build]][link_build]
-[![Release Status][badge_release]][link_build]
-[![Image size][badge_size_latest]][link_docker_hub]
-[![License][badge_license]][link_license]
-
-This application allows you to test and debug Webhooks and HTTP requests using unique (random) URLs. You can customize the response code, `content-type` HTTP header, response content and set some delay for the HTTP responses. The main idea is viewed [here](https://github.com/fredsted/webhook.site).
+This application allows you to test and debug Webhooks and HTTP requests using unique (random) URLs. You can customize the response code, `content-type` HTTP header, response content and set some delay for the HTTP responses. .
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/7326800/201918441-ec70a826-48dc-4bb0-af27-d194ea89a4ad.gif" alt="screencast" />
 </p>
 
-This application is written in GoLang and works very fast. It comes with a tiny UI (written in `Vue.js`), which is built in the binary file, so you don't need any additional assets for the application using. Websockets are also used for incoming webhook notifications in the UI - you don't need any 3rd party solutions (like `pusher.com`) for this!
+This application is written in GoLang and works very fast. It comes with a tiny UI (written in `Vue.js`), which is built in the binary file, so you don't need any additional assets for the application using. Websockets are also used for incoming webhook notifications in the UI.
 
 ### 🔥 Features list
 
